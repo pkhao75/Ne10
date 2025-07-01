@@ -1,5 +1,14 @@
 # README
 
+>## Fork Notice
+> This is a fork of [Project Ne10](https://github.com/projectNe10/Ne10), adapted to support modern Android toolchains (NDK r25+), for both 64-bit and 32-bit targets, using a fully CMake-based workflow.
+>
+>The main modification introduces a [Python script](./tools/gas2android_convert.py) that converts GAS-style ARM assembly to Clang’s integrated assembler syntax for Android—mirroring the approach used by the original maintainers for iOS.
+>
+>Refer to this fork if you're encountering build issues with the original Ne10 on recent Android setups. A complete CMake integration example is available in the  [LDSP project](https://github.com/victorzappi/LDSP).
+
+
+
 ## What’s Ne10?
 Ne10 is a library of common, useful functions that have been heavily optimised for ARM-based CPUs equipped with [NEON](https://www.arm.com/products/processors/technologies/neon.php) SIMD capabilities. It provides consistent, well-tested behaviour, allowing for painless integration into a wide variety of applications. The library currently focuses primarily around math, signal processing, image processing, and physics functions.
 
