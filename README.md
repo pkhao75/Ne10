@@ -3,9 +3,9 @@
 >## Fork Notice
 > This is a fork of [Project Ne10](https://github.com/projectNe10/Ne10), adapted to support modern Android toolchains (NDK r25+), for both 64-bit and 32-bit targets, using a fully CMake-based workflow.
 >
->The main modification introduces a [Python script](./tools/gas2android_convert.py) that converts GAS-style ARM assembly to Clang’s integrated assembler syntax for Android—mirroring the approach used by the original maintainers for iOS.
+> We made an important modification to still support 32 bit tragets. This edit introduces a [Python script](./tools/gas2android_convert.py) that transparently rewrites all GNU-as(Gas)–style NEON `.neon.s` kernels (math, physics, DSP/FFT, image processing) into Clang-compatible assembly **only** when targeting **32-bit ARM (`armv7a`)**, mirroring the upstream iOS build. When targeting **64-bit ARM (`aarch64`)**, none of the `.neon.s` files are converted or altered—the build proceeds exactly as in the original Ne10 (using its pure-C and intrinsics paths), and all math/physics functions fall back to standard `sinf`, `cosf`, `tanhf`, etc., which the compiler auto-vectorizes under Clang/LLVM's `-O3`, `-ffast-math` or the default `-fvectorize`.
 >
->Refer to this fork if you're encountering build issues with the original Ne10 on recent Android setups. A complete CMake integration example is available in the  [LDSP project](https://github.com/victorzappi/LDSP).
+>Refer to this fork if you're encountering build issues with the original Ne10 on recent Android setups. A complete CMake integration example is available in the [LDSP project](https://github.com/victorzappi/LDSP).
 
 
 
